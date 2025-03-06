@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExPlayer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="player-header">
+            <div class="logo">
+                <i class="fas fa-headphones-alt"></i>
+                <span class="logo-text">Ex<span class="accent">Player</span></span>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="player">
+                <i class="fas fa-music"></i>
+                Плеер
+            </button>
+            <button class="tab-btn" data-tab="library">
+                <i class="fas fa-folder"></i>
+                Библиотека
+            </button>
+            <button class="tab-btn" data-tab="favorites">
+                <i class="fas fa-heart"></i>
+                Избранное
+            </button>
+        </div>
+
+        <div class="tab-content active" id="player">
+            <div class="player-container">
+                <div class="visualizer-container">
+                    <canvas id="visualizer"></canvas>
+                    <div class="mood-indicator">
+                        <i class="fas fa-smile mood-icon"></i>
+                        <span class="mood-text">Настроение трека</span>
+                    </div>
+                </div>
+                <div class="album-art">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="song-info">
+                    <h2 class="song-title">Название песни</h2>
+                    <p class="artist">Исполнитель</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="time">
+                        <span class="current-time">0:00</span>
+                        <span class="duration">0:00</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="control-btn" id="prevBtn">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button class="control-btn" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" id="nextBtn">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+                <div class="extra-controls">
+                    <button class="control-btn" id="speedBtn" title="Скорость воспроизведения">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span class="speed-value">1x</span>
+                    </button>
+                    <button class="control-btn" id="loopBtn" title="Режим повтора">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <button class="control-btn" id="shuffleBtn" title="Случайный порядок">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn" id="nightModeBtn" title="Ночной режим">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="100">
+                </div>
+            </div>
+            <div class="player-playlist">
+                <h3>Плейлист</h3>
+                <div class="playlist-controls">
+                    <button class="playlist-btn" id="sortBtn">
+                        <i class="fas fa-sort"></i>
+                        Сортировка
+                    </button>
+                    <button class="playlist-btn" id="filterBtn">
+                        <i class="fas fa-filter"></i>
+                        Фильтр
+                    </button>
+                </div>
+                <div class="player-songs-list"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="library">
+            <div class="library-container">
+                <input type="file" id="fileInput" multiple accept="audio/*" class="file-input">
+                <label for="fileInput" class="upload-btn">
+                    <i class="fas fa-plus"></i>
+                    Добавить песни
+                </label>
+                <div class="songs-list"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="favorites">
+            <div class="favorites-container">
+                <div class="favorites-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
